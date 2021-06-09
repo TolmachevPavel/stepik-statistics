@@ -30,6 +30,26 @@ table(a)[which.max(table(a))]
 
 Значение 2 повторяется 3 раза (но не показывает вторую моду - у нас же распределение мультимодальное)
 
+Можно создать функцию:
+
+find_modes <- 
+function(x) {
+
+	x <- table(x)
+	cnt <- NULL
+	modes <- NULL
+	for ( i in 1:length(x)) {
+    if (x[[i]] == max(unique(x))) {
+		cnt <- c(cnt,i)
+        }}
+	minx <- length(x)-length(cnt)+1
+	maxx <- length(x)
+	b <- sort(x)[as.numeric(minx):as.numeric(maxx)]
+	d <- as.numeric(names(b))	
+	modes <- d
+	return(modes)
+	}
+
 Графические методы:
 
 plot(table(a))  # графический способ №1
